@@ -1,0 +1,15 @@
+[Unit]
+Description=Puma service for Tory PXE task server
+
+[Service]
+WorkingDirectory=/srv/tory-task/current
+SyslogIdentifier=tory-task-puma
+PIDFile=/srv/tory-task/current/tmp/puma/pid
+Environment="RACK_ENV=production"
+ExecStart=/usr/local/bin/bundle exec puma -C /srv/tory-task/current/config/puma.rb
+ExecStop=/usr/bin/kill -QUIT $MAINPID
+ExecReload=/usr/bin/kill -USR1 $MAINPID
+Restart=always
+
+[Install]
+WantedBy=multiuser.target

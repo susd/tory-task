@@ -1,0 +1,4 @@
+DEFAULT tory-deploy
+LABEL tory-deploy
+  kernel zilla/live/vmlinuz
+  append initrd=zilla/live/initrd.img boot=live config noswap edd=on nomodeset noprompt nolocales keyboard-layouts=NONE ocs_live_run="/usr/sbin/ocs-sr -e1 auto -e2 -hn1 pc -r -j2 -b -p true restoredisk <%= @image %> sda" ocs_live_batch=yes vga=788 ip=frommedia nosplash i915.blacklist=yes radeonhd.blacklist=yes nouveau.blacklist=yes vmwgfx.blacklist=yes fetch=tftp://<%= @pxe %>/zilla/live/filesystem.squashfs ocs_prerun="mount -t nfs <%= @storage %>:/images/dev /home/partimag" ocs_postrun="wget http://<%= @app %>/tasks/<%= @mac %>/finish" ocs_postrun1="sudo reboot"

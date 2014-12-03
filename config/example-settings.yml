@@ -1,0 +1,19 @@
+# rename this file to settings.yml and add your own configuration
+
+production:
+  pxe_server: '192.168.0.1'
+  storage_server: '192.168.0.2'
+  app_server: 'URL-FOR-TORY-INSTALLATION'
+  task_path: '/srv/tftpboot/pxelinux.cfg'
+
+development:
+  pxe_server: 'localhost'
+  storage_server: 'localhost'
+  app_server: 'localhost:3000'
+  task_path: 'tmp/tasks'
+  
+test:
+  pxe_server: 'localhost'
+  storage_server: 'localhost'
+  app_server: 'localhost:3000'
+  task_path: 'tmp/tasks'

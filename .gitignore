@@ -1,0 +1,9 @@
+# Ignore bundler config.
+/.bundle
+/tmp
+/log
+.DS_Store
+
+config/deploy.rb
+config/settings.yml
+config/tory-task.conf

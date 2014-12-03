@@ -1,0 +1,4 @@
+DEFAULT tory-upload
+LABEL tory-upload
+  kernel zilla/live/vmlinuz
+  append initrd=zilla/live/initrd.img boot=live config noswap edd=on nomodeset noprompt nolocales keyboard-layouts=NONE ocs_live_run="/usr/sbin/ocs-sr -q2 -c -j2 -ntfs-ok -z1p -i 2000000 -p true savedisk <%= @image %> sda" ocs_live_batch=yes vga=788 ip=frommedia nosplash i915.blacklist=yes radeonhd.blacklist=yes nouveau.blacklist=yes vmwgfx.blacklist=yes fetch=tftp://<%= @pxe %>/zilla/live/filesystem.squashfs ocs_prerun="mount -t nfs <%= @storage %>:/images/dev /home/partimag" ocs_postrun="wget http://<%= @app %>/tasks/<%= @mac %>/finish" ocs_postrun1="sudo reboot"
